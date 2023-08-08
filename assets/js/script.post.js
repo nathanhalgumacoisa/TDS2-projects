@@ -1,16 +1,28 @@
 const posts = []
-
+const postIndex = -1
 function savePost(){
     const title = document.getElementById("title").value
-    const resume = document.getElementById("resume").value
-    const category = document.getElementById("category").value
+    const resume = document.getElementById("category").value
+    const category = document.getElementById("resume").value
     const author = document.getElementById("author").value
     const date = document.getElementById("date").value
 
+
     if(title && category && resume && author && date){
-        storePost(title, resume, category, author, date )
+        if(postIndex == -1){
+            storePost(title, resume, category, author, date )
         cleanField()
         showPost()
+        }else{
+            posts[postIndex] = {
+                title,
+                category,
+                resume,
+                author,
+                date
+            }
+             
+        }
     }else{
         alert("Preencha todos os campos!")
     }
@@ -20,8 +32,8 @@ function savePost(){
 
 function cleanField(){
     document.getElementById("title").value
-    document.getElementById("resume").value
     document.getElementById("category").value
+    document.getElementById("resume").value
     document.getElementById("author").value
     document.getElementById("date").value
 }
@@ -40,6 +52,7 @@ function storePost(title, category, resume, author, date){
 }
 
 function showPost() {
+    document.getElementById("list").classList.remove("hidden")
     let showContent = "";
 
     posts.forEach((post, index) => {
@@ -56,4 +69,25 @@ function showPost() {
            </div>`;
     });
     document.getElementById("list").innerHTML = showContent;
+}
+
+function editPost(index){
+    const post = posts[index];
+
+    document.getElementById("title").value = post.title
+    document.getElementById("category").value = post.category
+    document.getElementById("resume").value = post.resume
+    document.getElementById("author").value = post.author
+    document.getElementById("date").value = post.date
+
+    postIndex = index;
+}
+
+function deletePost(index){
+    post.splice(index, 1);
+    showPost();
+
+    if(posts.length == 0){
+        document.getElementById("list").classList.add("hidden")
+    }
 }
