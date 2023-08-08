@@ -1,6 +1,6 @@
 const posts = []
-const postIndex = -1
-function savePost(){
+let postIndex = -1
+function savePost() {
     const title = document.getElementById("title").value
     const resume = document.getElementById("category").value
     const category = document.getElementById("resume").value
@@ -8,12 +8,12 @@ function savePost(){
     const date = document.getElementById("date").value
 
 
-    if(title && category && resume && author && date){
-        if(postIndex == -1){
-            storePost(title, resume, category, author, date )
-        cleanField()
-        showPost()
-        }else{
+    if (title && category && resume && author && date) {
+        if (postIndex == -1) {
+            storePost(title, resume, category, author, date)
+            cleanField()
+            showPost()
+        } else {
             posts[postIndex] = {
                 title,
                 category,
@@ -21,28 +21,32 @@ function savePost(){
                 author,
                 date
             }
-             
         }
-    }else{
+            cleanField()
+            showPost()
+            postIndex = -1
+        
+    } else {
         alert("Preencha todos os campos!")
+        cleanField()
     }
 
-    
+
 }
 
-function cleanField(){
-    document.getElementById("title").value
-    document.getElementById("category").value
-    document.getElementById("resume").value
-    document.getElementById("author").value
-    document.getElementById("date").value
+function cleanField() {
+    document.getElementById("title").value = ""
+    document.getElementById("category").value = ""
+    document.getElementById("resume").value = ""
+    document.getElementById("author").value = ""
+    document.getElementById("date").value = ""
 }
 
 
-function storePost(title, category, resume, author, date){
+function storePost(title, category, resume, author, date) {
     const post = {
         title,
-        category, 
+        category,
         resume,
         author,
         date
@@ -71,23 +75,23 @@ function showPost() {
     document.getElementById("list").innerHTML = showContent;
 }
 
-function editPost(index){
+function editPost(index) {
     const post = posts[index];
 
-    document.getElementById("title").value = post.title
-    document.getElementById("category").value = post.category
-    document.getElementById("resume").value = post.resume
-    document.getElementById("author").value = post.author
-    document.getElementById("date").value = post.date
+    document.getElementById("title").value = post.title;
+    document.getElementById("category").value = post.category;
+    document.getElementById("resume").value = post.resume;
+    document.getElementById("author").value = post.author;
+    document.getElementById("date").value = post.date;
 
     postIndex = index;
 }
 
-function deletePost(index){
-    post.splice(index, 1);
+function deletePost(index) {
+    posts.splice(index, 1);
     showPost();
 
-    if(posts.length == 0){
+    if (posts.length == 0) {
         document.getElementById("list").classList.add("hidden")
     }
 }
