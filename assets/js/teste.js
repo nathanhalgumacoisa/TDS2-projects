@@ -118,7 +118,7 @@ const multiplicationResult = calculator.multiply(4, 2);
 console.log("multiplication:", multiplicationResult);
 
 const substractionResult = calculator.substract(10, 4);
-console.log("substraction", substractionResult);*/
+console.log("substraction", substractionResult);
 
 class Witch{
     constructor(name, patron, house, colorEyes){
@@ -162,3 +162,29 @@ class TypeWitch extends Witch {
 
 const Harry = new TypeWitch('Harry Potter', 'Cervo', 'Grifinória', 'Verde/Azul', 'M');
 console.log(Harry.getTypeWitch())
+
+class CamaraSecreta {
+    constructor(name, pwd){
+        this.name =name;
+        let _pwd = pwd;
+        this.verifyPwd = (pwdInput) => {
+            return pwdInput == _pwd;
+        }
+        this.acessToChamber = () => {
+            let pwdInput = prompt("digite a senha")
+            if (this.verifyPwd(pwdInput)){
+                console.log(`Bem-vindo a Camara Secreta`)
+            }else{
+                console.log("acesso negado troxa!")
+            }
+        }        
+    }
+    showName(){
+        console.log(`Nome do bruxo: ${this.name}`);
+    }
+    const myAcess1 = new CamaraSecreta(`Harry Potter` `senha123`);
+    myAcess1.name = 'HP';
+
+    myAcess1.pwd ='123';
+}
+*/
