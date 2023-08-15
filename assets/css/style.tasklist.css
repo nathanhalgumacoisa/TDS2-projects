@@ -38,3 +38,6 @@ button{
     width: 29px;
     height: 29px;
 }
+.hidden{
+    display: none;
+}
