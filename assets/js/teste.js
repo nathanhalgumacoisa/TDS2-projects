@@ -187,4 +187,66 @@ class CamaraSecreta {
 
     myAcess1.pwd ='123';
 }
+
+
+const campanies = ["Apple","Google", "Facebook" ]
+companies.forEach(company => {
+    console.log(`hey ${company}!`);
+});
+
+
+const names = ["Whinds", "Freeway", "Teste", "Maria" ];
+names.forEach((name) => {
+    console.log(`hi, ${name}!`);
+});
+
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8,9, 10];
+console.log(numbers)
+//forEach
+numbers.forEach((number) => {
+    if(number % 2 == 0){
+        console.log(number)
+    }
+});
+
+
+const cars = [
+    {
+        marca: "Ford",
+        modelo: "Focus",
+    },
+    {
+        marca: "BMW",
+        modelo: "BMW Z4",
+    },
+    {
+        marca: "Fiat",
+        modelo: "Palio",
+    },
+    {
+        marca: "Audi",
+        modelo: "A3",
+    },
+];
+cars.forEach((car) => {
+    console.log(`Marca: ${car.marca}, Modelo: ${car.modelo}`);
+});
 */
+
+class Car{
+    constructor(brand, model){
+        this.brand = brand
+        this.model = model
+    }
+   }
+   
+   
+
+function carShop(){
+    let brand = document.getElementById("brand").value;
+    let model = document.getElementById("model").value;
+    const newCar= new Car(brand, model)
+    cars.push(newCar);
+    console.log(cars)
+}
