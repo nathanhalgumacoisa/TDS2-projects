@@ -16,3 +16,16 @@ class product {
         this.category = category
     }
 }
+//Class CategoryService
+class CategoryService {
+    constructor(){
+        this.categories = [];
+        this.nextCategoryId = 1;
+    }
+    //addcategory
+    addCategory(name){
+        const id = this.nextCategoryId ++;
+        const category = new Category(id, name);
+        this.categories.push(category)
+    }
+}
