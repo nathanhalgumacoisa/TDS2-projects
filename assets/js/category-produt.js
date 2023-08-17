@@ -20,12 +20,22 @@ class product {
 class CategoryService {
     constructor(){
         this.categories = [];
-        this.nextCategoryId = 1;
+        this.nextCategoryId = 0;
     }
-    //addcategory
+    //addcategory services
     addCategory(name){
         const id = this.nextCategoryId ++;
         const category = new Category(id, name);
         this.categories.push(category)
     }
+}
+//categoryList for test
+const categoryList = new CategoryService();
+//creation of the function createCategory for test
+function createCategory(){
+    const categoryName = "Doce";
+
+    categoryList.addCategory(categoryName)
+
+    console.log(categoryList.categories);
 }
