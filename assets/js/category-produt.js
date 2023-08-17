@@ -48,7 +48,7 @@ const categoryList = new CategoryService();
 const productList = new ProductsService();
 //creation of the function createCategory for test
 function createCategory(){
-    const categoryName = "Doce";
+    const categoryName = document.getElementById("categoryName").value;
 
     categoryList.addCategory(categoryName)
 //console.log
@@ -62,4 +62,40 @@ function createProduct(){
     productList.addProduct(productName, productPrice, productCategory)
 
     console.log(productList.products)
+}
+function clearFormField(){
+    document.getElementById("categoryName").value = ""
+    document.getElementById("productName").value = ""
+    document.getElementById("productPrice").value = ""
+    document.getElementById("productCategory").value
+}
+
+function displayCategoriesandProducts(){
+    let content = ""
+    categoryList.category.forEach((category) => {
+        content += `
+        <li>
+            <div class=""categoriesList>
+                <span><b>categoria:</b>${category.name}</span>
+                <div>
+                    <button class="editButton">editar</button>
+                    <button class="deleteButton">deletar</button>
+                </div>
+            </div>
+            <ul class="productsListByCategory">`
+                category.products.forEach((product) => {
+                    content +=`
+                    <li>
+                    <div class="productsList">
+                        <span><b>Produto:</b>${product.name} - <b>Preço:</b>R$ ${product.price}</span>
+                        <button class="editButton">editar</button>
+                        <button class="deleteButton">deletar</button>
+                    </div>
+                    </li>`
+                })`
+            </ul>
+        </li>
+        `
+    });
+
 }
