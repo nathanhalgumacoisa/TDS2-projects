@@ -232,7 +232,7 @@ const cars = [
 cars.forEach((car) => {
     console.log(`Marca: ${car.marca}, Modelo: ${car.modelo}`);
 });
-*/
+
 
 class Car{
     constructor(brand, model){
@@ -250,3 +250,4 @@ function carShop(){
     cars.push(newCar);
     console.log(cars)
 }
+*/
