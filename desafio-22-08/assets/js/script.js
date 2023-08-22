@@ -1,4 +1,4 @@
-/*
+
 getZodiacSign() {
     let birthdate = new Date(this.birthdate);
     let day = birthdate.getDate();
@@ -106,7 +106,7 @@ function sendErrorMsg(msg) {
     }, 4000);
 }
 
-*/
+
 
 // how many functions are there? 12
 // how many classes are there? 2
