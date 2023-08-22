@@ -26,7 +26,7 @@ function cleanFields(){
     document.getElementById("cpf").value = "";
 }
     
-getZodiacSign() {
+function getZodiacSign() {
     let birthdate = new Date(this.birthdate);
     let day = birthdate.getDate();
     let month = birthdate.getMonth() + 1;
