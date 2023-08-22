@@ -29,7 +29,9 @@ function createUser(){
     let cpf = document.getElementById("cpf").value
     const user = new User(name, email, birthdate, address, phone, cpf )
     userList.addUser(user);
-    cleanFields()
+    cleanFields();
+    getZodiacSign();
+    showRegister();
 }
 
 
