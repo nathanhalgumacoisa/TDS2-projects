@@ -5,8 +5,26 @@ class User{
         this.date = date;
         this.city = city;
         this.phone = phone;
-        this.cpf = cpf
+        this.cpf = cpf;
     }
+
+    ListUser(){
+        let name = new name(this.name);
+        let email = new email(this.email);
+        let date = new date(this.date);
+        let city =new city(this.city);
+
+    }
+}
+
+function cleanFields(){
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("birthdate").value = "";
+    document.getElementById("address").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("cpf").value = "";
+}
     
 getZodiacSign() {
     let birthdate = new Date(this.birthdate);
