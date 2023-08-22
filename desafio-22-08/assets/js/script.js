@@ -1,9 +1,9 @@
 class User{
-    constructorUser(name, email, date, city, phone, cpf){
+    constructorUser(name, email, birthdate, address, phone, cpf){
         this.name = name;
         this.email = email;
-        this.date = date;
-        this.city = city;
+        this.birthdate = birthdate;
+        this.address = address;
         this.phone = phone;
         this.cpf = cpf;
     }
@@ -17,6 +17,19 @@ class User{
     addUser(user){
         this.users.push(user)
     }
+}
+const userList = new ListUser();
+
+function createUser(){
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let birthdate = document.getElementById("birthdate").value;
+    let address = document.getElementById("address").value;
+    let phone = document.getElementById("phone").value;
+    let cpf = document.getElementById("cpf").value
+    const user = new User(name, email, birthdate, address, phone, cpf )
+    userList.addUser(user);
+    cleanFields()
 }
 
 
