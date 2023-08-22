@@ -7,15 +7,18 @@ class User{
         this.phone = phone;
         this.cpf = cpf;
     }
+}
 
-    ListUser(){
-        let name = new name(this.name);
-        let email = new email(this.email);
-        let date = new date(this.date);
-        let city =new city(this.city);
-
+   class ListUser{
+        constructor(){
+            this.users = []
+        }
+    
+    addUser(user){
+        this.users.push(user)
     }
 }
+
 
 function cleanFields(){
     document.getElementById("name").value = "";
