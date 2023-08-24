@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style.cadastrojogo.css">
-    <script src="../assets/js/cadastrojogo.js"></script>
     <title>Cadastrar Jogos</title>
 </head>
 <body>
@@ -24,18 +23,19 @@
             <label for="input-preço">Preço</label>
             <input type="number" id="input-preço" name="input-preço" class="input">
             <label for="input-descrição">Descrição</label>
-            <input type="number" id="input-descrição" name="input-descrição" class="input">
-            <label for="input-plataforma">Preço</label>
-            <input type="number" id="input-plataforma" name="input-plataforma" class="input">
-            <label for="input-link">Preço</label>
-            <input type="number" id="input-link" name="input-link" class="input">
+            <input type="text" id="input-descrição" name="input-descrição" class="input">
+            <label for="input-plataforma">Plataforma</label>
+            <input type="text" id="input-plataforma" name="input-plataforma" class="input">
+            <label for="input-link">Link da imagem</label>
+            <input type="text" id="input-link" name="input-link" class="input">
 
-            <div id="msg">
-                <button id="criar-jogo" class="button" onclick="">cadastrar</button>
+            <div id="msg"></div>
+                <button id="criar-jogo" class="button" onclick="comporJogo()">cadastrar</button>
                 <!--Finalizamos a primeira parte do html e indentificamos que é presiso do js pra prosseguir. -->
-            </div>
         </div>
 
     </div>
+
+    <script src="../assets/js/cadastrojogo.js"></script>
 </body>
 </html>
