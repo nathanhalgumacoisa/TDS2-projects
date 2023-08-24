@@ -9,3 +9,9 @@ class Carro{
         this.imagem = imagem;
     }
 }
+class ListaCarro{
+   constructor(){
+    this.carros = [];
+    
+   } 
+}
