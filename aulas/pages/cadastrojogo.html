@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.cadastrojogo.css">
+    <script src="../assets/js/cadastrojogo.js"></script>
+    <title>Cadastrar Jogos</title>
+</head>
+<body>
+<!--Primeiro passo criar uma div, pois indentificamos que é presiso de um div controle/pai. geralmente essa div é chamda de container-->
+    <div id="container">
+        <!--dentro dessa div indicamos um h1/h2 e 5 inputs e 1 botão. 
+        Então criar tags-->
+        <!--criaremos um h2, que possi uma class ou id-->
+        <h2 id="titulo-principal">Cadastrar Jogos</h2>
+        <!--aqui dentro colocamos o valor desse h2, que é "cadastrar jogos"-->
+        <!--Separar inputs e labels e o botão em apenas  um bloco /div que seja só deles-->
+        <div id="input-container">
+            <!--Criar os inputs com suas labels e elas contem um for (id dos inputs delas) e seus texto
+            o input contem id name class e o seu type (tipo)-->
+            <label for="input-titulo">Titulo</label>
+            <input type="text" id="input-titulo" name="input-titulo" class="input">
+            <label for="input-preço">Preço</label>
+            <input type="number" id="input-preço" name="input-preço" class="input">
+            <label for="input-descrição">Descrição</label>
+            <input type="number" id="input-descrição" name="input-descrição" class="input">
+            <label for="input-plataforma">Preço</label>
+            <input type="number" id="input-plataforma" name="input-plataforma" class="input">
+            <label for="input-link">Preço</label>
+            <input type="number" id="input-link" name="input-link" class="input">
+
+            <div id="msg">
+                <button id="criar-jogo" class="button" onclick="">cadastrar</button>
+                <!--Finalizamos a primeira parte do html e indentificamos que é presiso do js pra prosseguir. -->
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
