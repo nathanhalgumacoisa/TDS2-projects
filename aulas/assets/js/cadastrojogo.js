@@ -1,89 +1,116 @@
-//Primeira coisa que eu vou verificar  se meu js esta linkado no meu html
-
-function verificarInputs(){
-    console.log("linkado?");
-let titulo = document.getElementById("input-titulo").value
-let preco = document.getElementById("input-preço").value
-let descricao = document.getElementById("input-descrição").value
-let plataforma = document.getElementById("input-plataforma").value
-let imgLink = document.getElementById("input-link").value
-
-
-
-if(titulo == '' || preco == '' || descricao == '' || plataforma == '' || imgLink == ''){
-    
-    return true;
-}else{
-    console.log("os dados não estão em branco")
-    return false
-}
-}
-
-function envieMsg(msg, tipos){
-
-
-let msgDiv = document.getElementById("msg");
-msgDiv.innerHTML = "";
-
-const msgParaTela = `
-    <p class='${tipos}'>${msg}</p>
-`
-msgDiv.innerHTML += msgParaTela;
-
-setTimeout(function(){
-    msgDiv.innerHTML = ""
-}, 3000)
-}
-class Jogo{
-    constructor(titulo, preco, descricao, plataforma, imgLink){
+// Objeto Game
+class Game {
+    constructor(titulo, preco, descricao, plataforma, imagem) {
         this.titulo = titulo;
         this.preco = preco;
         this.descricao = descricao;
         this.plataforma = plataforma;
-        this.imgLink = imgLink;
-        
+        this.imagem = imagem;
     }
 }
-const jogo = new Jogo("teste", "12", "desc", "eu", "img");
 
-
-function comporJogo(){
-let titulo = document.getElementById("input-titulo").value
-let preco = document.getElementById("input-preço").value
-let descricao = document.getElementById("input-descrição").value
-let plataforma = document.getElementById("input-plataforma").value
-let imgLink = document.getElementById("input-link").value
-
-const jogo = new  Jogo(titulo,preco,descricao,plataforma,imgLink,)
-
-bibliotecaJogos.add(jogo)
-
-}
-
-class ListaJogos{
-    constructor(){
-        this.listaJogosArray = [];
+// Classe GamesList
+class GamesList {
+    constructor() {
+        this.games = [];
     }
-    add(jogo){
-        this.listaJogosArray.push(jogo);
-        if(verificarInputs()){
-            envieMsg("preencha todos os campos", "erro")
-        }else{
-            this.listaJogosArray.push(jogo)
-            envieMsg("Cadastrado com sucesso", "sucesso")
-            limparInputs()
+
+    adicionarJogo(titulo, preco, descricao, plataforma, imagem) {
+        if (isAnyInputEmpty()) {
+            sendMSG("Preencha todos os campos!", "erro"); 
+        }else if(!isURLValida(imagem)){
+            sendMSG("URL da imagem inválida!", "erro");
         }
+        else{
+            const jogo = new Game(titulo, preco, descricao, plataforma, imagem);
+            this.games.push(jogo);
+            sendMSG("Jogo adicionado com sucesso!", "successo");
+            clearInputs();
+        }
+
+
     }
 }
 
-const bibliotecaJogos = new ListaJogos();
-console.log(bibliotecaJogos)
+// Função para exibir jogos
+function exibirJogos() {
+    const gameList = document.getElementById("gameList");
+    gameList.innerHTML = "";
 
-function limparInputs(){
-    console.log("usei a função limparInputs")
- titulo = document.getElementById("input-titulo").value = ""
- preco = document.getElementById("input-preço").value = ""
- descricao = document.getElementById("input-descrição").value = ""
- plataforma = document.getElementById("input-plataforma").value = ""
- imgLink = document.getElementById("input-link").value = ""
+    gamesList.games.forEach(jogo => {
+        const cardDiv = `
+            <div class="card">
+                <img src="${jogo.imagem}" alt="${jogo.titulo}">
+                <h2>${jogo.titulo}</h2>
+                <p>Preço: R$${jogo.preco}</p>
+                <p>Descrição: ${jogo.descricao}</p>
+                <p>Plataforma: ${jogo.plataforma}</p>
+            </div>
+        `;
+
+        gameList.innerHTML += cardDiv;
+    });
+}
+
+// Instância da classe GamesList
+const gamesList = new GamesList();
+
+// Função para adicionar um jogo
+function adicionarJogo() {
+    const titulo = document.getElementById("titulo").value;
+    const preco = document.getElementById("preco").value;
+    const descricao = document.getElementById("descricao").value;
+    const plataforma = document.getElementById("plataforma").value;
+    const imagem = document.getElementById("imagem").value;
+
+    gamesList.adicionarJogo(titulo, preco, descricao, plataforma, imagem);
+
+    exibirJogos();
+}
+
+function isURLValida(url) {
+    if(url.match(/\.(jpeg|jpg|gif|png)$/) != null){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function clearInputs(){
+    // Limpa os campos de entrada após adicionar o jogo
+    document.getElementById("titulo").value = "";
+    document.getElementById("preco").value = "";
+    document.getElementById("descricao").value = "";
+    document.getElementById("plataforma").value = "";
+    document.getElementById("imagem").value = "";
+}
+
+function sendMSG(msg,type){  
+    // Como type vai ser a class, será ou error ou success
+    const msgDiv = document.getElementById("msg");
+    msgDiv.innerHTML = "";
+
+    const msgP = `
+        <p class="${type}">${msg}</p>
+    `;
+
+    msgDiv.innerHTML += msgP;
+
+    setTimeout(function(){
+        msgDiv.innerHTML = "";
+    }, 3000);
+}
+
+function isAnyInputEmpty(){
+    const titulo = document.getElementById("titulo").value;
+    const preco = document.getElementById("preco").value;
+    const descricao = document.getElementById("descricao").value;
+    const plataforma = document.getElementById("plataforma").value;
+    const imagem = document.getElementById("imagem").value;
+
+    if(titulo == "" || preco == "" || descricao == "" || plataforma == "" || imagem == ""){
+        return true;
+    } else {
+        return false;
+    }
 }
