@@ -73,7 +73,6 @@ elementoLista.innerHTML = content;
 function listarEquipesPorId(id){
     const equipe = equipeService.listarEquipesPorId(id);
     const elementoLista = document.getElementById("listarEquipeUnica");
-    document.getElementById("listaEquipeUnica").classList.remove("hidden");
     elementoLista.innerHTML = ""
     let content = `
         <div>
@@ -83,6 +82,7 @@ function listarEquipesPorId(id){
             <p>reserva: ${equipe.reservas}</p>
             <p>titulares: ${equipe.titulares}</p>
             <button onclick="atualizarEquipe(${equipe.id})">Editar</button>
+            <button onclick="deletarEquipes(${equipe.id})">excluir</button>
         </div>
     `
     elementoLista.innerHTML = content
@@ -96,7 +96,7 @@ function atualizarEquipe(id){
     document.getElementById("botaoEditar").classList.remove("hidden");
     aux = id
 }
-function editarEquipe(){
+function editarEquipe(id){
     const equipe = equipeService.listarEquipesPorId(id);
    const nome = document.getElementById("nomeDaEquipe").value;
     const titulares = document.getElementById("quantidade").value;
