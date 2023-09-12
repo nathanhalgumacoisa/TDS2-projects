@@ -1,13 +1,15 @@
-# Estrutura Básica projetos HTML, CSS e JS
-#### Criar a pasta principal com o nome do seu projeto "Meu-projeto", e dentro dela iremos criar as seguintes pastas e arquivos.
-#### index.html (arquivo principal do html)
-#### readme.md (para compartilhar as informações do seu projeto)
-#### assets (pasta)
-##### images(pasta)
-#### css (pasta)
-#### styles.index.css (arquivo CSS para estilos)
-#### js(pasta)
-#### scrips.index.js (arquivo JS para as ações)
-#### layouts (pasta)
-#### pages (pasta)
-#### sobrenos.html (arquivo da página sobre nós)
+## Cadastro de Equipes
+
+### Passo a passo
+
+- [X] Estrutura basica de pastas
+- [X] Criar os inputs
+- [X] Testar js
+possiveis erros: caminho do js errado
+- [X] Testar inputs
+possiveis erros: os id estarem incorreto
+- [X] Criar class Equipe
+- [X] Criar restante dos atributos
+- [X] teste funções
+- [x] alimentaçãi da lista de quipes com as variaveis montadas
+- [] Função para listar equipes unicas
